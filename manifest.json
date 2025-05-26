@@ -10,5 +10,10 @@
             "css": ["styles.css"],
             "js": ["content.js"]
         }
-    ]
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "return-taiwan-wca@ricky-hu.com"
+        }
+    }
 }
