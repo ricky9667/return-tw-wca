@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Return Taiwan WCA",
+    "version": "1.0",
+    "description": "Brings back Taiwan for WCA webpages",
+    "permissions": ["activeTab"],
+    "content_scripts": [
+        {
+            "matches": ["https://*.worldcubeassociation.org/*"],
+            "css": ["styles.css"],
+            "js": ["content.js"]
+        }
+    ]
+}
