@@ -17,6 +17,9 @@
     "browser_specific_settings": {
         "gecko": {
             "id": "return-taiwan-wca@ricky-hu.com"
+        },
+        "gecko_android": {
+            "strict_min_version": "113.0"
         }
     }
 }
