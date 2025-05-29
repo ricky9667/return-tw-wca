@@ -8,7 +8,7 @@ This extension currently replaces english and chinese text only.
 ### Chrome Extension
 
 1. Download or `git clone` this repository.
-2. Go to the chrome extensions page: `chrome://extensions/`
+2. Go to the chrome extensions page: `chrome://extensions/` (Remember to turn on **developer mode**, located on the **top right** of the screen)
 3. Click **Load Unpacked** and select the **repository folder**.
 
 ### Firefox Add-on
