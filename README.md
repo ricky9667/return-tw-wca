@@ -1,7 +1,6 @@
 # Return Taiwan WCA
 
 A web extension that changes `Chinese Taipei` back to `Taiwan` on all WCA results.
-This extension currently replaces english and chinese text only.
 
 ## How to develop or use locally
 
