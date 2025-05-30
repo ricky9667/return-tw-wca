@@ -27,8 +27,8 @@ const replacements = {
   "ไชนีสไทเป": "ไต้หวัน",
   "Китайський Тайбей": "Тайвань",
   "Đài Bắc Trung Quốc": "Đài Loan",
-  "中国台北": "台湾",
-  "中國台北": "台灣"
+  "中华台北": "台湾",
+  "中華台北": "台灣"
 };
 
 function replaceTextInNode(node) {
