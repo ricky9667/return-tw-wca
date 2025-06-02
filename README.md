@@ -2,6 +2,11 @@
 
 A web extension that changes `Chinese Taipei` back to `Taiwan` on all WCA results.
 
+## Get the extension
+
+- [Chrome Extension](https://chromewebstore.google.com/detail/return-taiwan-wca/bppnbbbpelfpljajoleaecdipgcccjdm)
+- [Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/return-taiwan-wca/)
+
 ## How to develop or use locally
 
 ### Chrome Extension
