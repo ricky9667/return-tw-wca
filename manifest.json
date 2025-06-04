@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Return Taiwan WCA",
-    "version": "1.4",
+    "version": "1.5",
     "description": "Brings back Taiwan for WCA webpages",
     "content_scripts": [
         {
