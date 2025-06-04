@@ -84,6 +84,14 @@ function replaceTextInNode(node) {
 
 replaceTextInNode(document.body);
 
+let lastUrl = window.location.href;
+setInterval(() => {
+  if (window.location.href !== lastUrl) {
+    lastUrl = window.location.href;
+    replaceTextInNode(document.body); // Re-run replacements on URL change
+  }
+}, 500);
+
 const observer = new MutationObserver(mutations => {
   mutations.forEach(mutation => {
     mutation.addedNodes.forEach(node => {
