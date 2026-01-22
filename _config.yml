@@ -1,0 +1,50 @@
+# Site configuration for Return Taiwan WCA
+
+# 1. Files excluded from Jekyll builds
+exclude:
+- node_modules
+- manifest.json
+- content.js
+- styles.css
+- icon.png
+- Gemfile
+- Gemfile.lock
+- .jekyll-cache
+
+# 2. Installed Gems
+plugins:
+- jekyll-remote-theme
+- jekyll-sitemap
+- jekyll-seo-tag
+
+# 3. Remote theme
+remote_theme: daviddarnes/alembic@main
+
+# 4. Jekyll settings
+sass:
+  style: compressed
+permalink: pretty
+timezone: Asia/Taipei
+
+# 5. Site settings
+encoding: utf-8
+lang: en-US
+title: "Return Taiwan WCA"
+description: "A web extension that changes 'Chinese Taipei' back to 'Taiwan' on all WCA results."
+url: "https://ricky9667.github.io"
+baseurl: "/return-tw-wca"
+repo: "https://github.com/ricky9667/return-tw-wca"
+
+# 6. Site navigation
+navigation_header:
+- title: Home
+  url: /
+- title: GitHub
+  url: https://github.com/ricky9667/return-tw-wca
+
+navigation_footer:
+- title: Return Taiwan WCA Extension
+  url: https://github.com/ricky9667/return-tw-wca
+
+# 7. Site feature image (nature cover from Unsplash)
+feature_image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&h=600&fit=crop"
