@@ -28,6 +28,7 @@ jobs:
         run: |
           mkdir _site
           cp index.html _site/
+          cp icon.svg _site/
           cp -r assets _site/
 
       - name: Setup Pages
