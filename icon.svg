@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <g transform="translate(16, 16) scale(0.192)">
+    <defs>
+      <mask id="ring-mask">
+        <rect width="500" height="500" fill="black" />
+        <circle cx="250" cy="250" r="240" fill="white" />
+        <circle cx="250" cy="250" r="180" fill="black" />
+        
+        <g stroke="black" stroke-width="8">
+          <line x1="250" y1="250" x2="250" y2="0" />
+          <line x1="250" y1="250" x2="250" y2="0" transform="rotate(60 250 250)" />
+          <line x1="250" y1="250" x2="250" y2="0" transform="rotate(120 250 250)" />
+          <line x1="250" y1="250" x2="250" y2="0" transform="rotate(180 250 250)" />
+          <line x1="250" y1="250" x2="250" y2="0" transform="rotate(240 250 250)" />
+          <line x1="250" y1="250" x2="250" y2="0" transform="rotate(300 250 250)" />
+        </g>
+      </mask>
+    </defs>
+
+    <g id="taiwan-flag">
+      <rect x="100.25" y="150.2" width="299.5" height="199.6" fill="#FE0000" />
+      <rect x="100.0" y="150.0" width="150.0" height="100.0" fill="#000095" />
+      
+      <g transform="translate(175.125, 200.1) scale(1.2)">
+        <g fill="#FFFFFF">
+          <polygon points="0,-32 5,-10 -5,-10" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(30)" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(60)" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(90)" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(120)" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(150)" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(180)" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(210)" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(240)" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(270)" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(300)" />
+          <polygon points="0,-32 5,-10 -5,-10" transform="rotate(330)" />
+        </g>
+        <circle cx="0" cy="0" r="17" fill="#000095" />
+        <circle cx="0" cy="0" r="13" fill="#FFFFFF" />
+      </g>
+    </g>
+
+    <g mask="url(#ring-mask)">
+      <path d="M 250 250 L 250 0 A 250 250 0 0 1 466.506 125 Z" fill="#FFD100" />
+      <path d="M 250 250 L 466.506 125 A 250 250 0 0 1 466.506 375 Z" fill="#FF5C00" />
+      <path d="M 250 250 L 466.506 375 A 250 250 0 0 1 250 500 Z" fill="#0046AD" />
+      <path d="M 250 250 L 250 500 A 250 250 0 0 1 33.494 375 Z" fill="#EAEAEA" />
+      <path d="M 250 250 L 33.494 375 A 250 250 0 0 1 33.494 125 Z" fill="#C8102E" />
+      <path d="M 250 250 L 33.494 125 A 250 250 0 0 1 250 0 Z" fill="#009A44" />
+    </g>
+  </g>
+</svg>
