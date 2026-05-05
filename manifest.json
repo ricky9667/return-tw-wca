@@ -11,7 +11,7 @@
         }
     ],
     "icons": {
-        "128": "icon.svg"
+        "128": "assets/icon.png"
     },
     "browser_specific_settings": {
         "gecko": {
