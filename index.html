@@ -1,220 +1,735 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>
-        Return Taiwan WCA
-    </title>
-    <meta name="description" content="Brings back Taiwan for WCA webpages." />
-    <meta name="keywords" content="WCA, Taiwan, Chinese Taipei, browser extension, speedcubing" />
-    <meta name="author" content="ricky9667" />
-    <link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet" />
-    <style>
-        .gradient {
-            background: linear-gradient(90deg, #161617 0%, #2c2c2e 100%);
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Return Taiwan WCA</title>
+  <meta name="description" content="Brings back Taiwan for WCA webpages." />
+  <meta name="keywords" content="WCA, Taiwan, Chinese Taipei, browser extension, speedcubing" />
+  <meta name="author" content="ricky9667" />
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("return-tw-wca-theme");
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = ["light", "dark"].includes(savedTheme) ? savedTheme : systemTheme;
+    } catch (_) {
+      document.documentElement.dataset.theme = "light";
+    }
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: oklch(100.00% 0.0000 89.88);
+      --surface: oklch(98.42% 0.0034 247.86);
+      --fg: oklch(20.06% 0.0020 286.22);
+      --muted: oklch(55.44% 0.0407 257.42);
+      --border: oklch(92.76% 0.0058 264.53);
+      --accent: oklch(29.39% 0.0036 286.18);
+      --accent-on: oklch(100.00% 0.0000 89.88);
+      --accent-hover: color-mix(in oklab, var(--accent), white 14%);
+      --accent-active: color-mix(in oklab, var(--accent), black 10%);
+      --success: oklch(62.72% 0.1940 149.21);
+      --warn: oklch(66.59% 0.1747 58.32);
+      --danger: oklch(57.73% 0.2152 27.33);
+      --font-display: "Rubik", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      --font-body: "Rubik", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      --font-mono: "Fira Code", ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+      --text-xs: 12px;
+      --text-sm: 14px;
+      --text-base: 16px;
+      --text-lg: 20px;
+      --text-xl: 24px;
+      --text-2xl: 32px;
+      --text-3xl: 40px;
+      --text-4xl: 64px;
+      --leading-body: 1.55;
+      --leading-tight: 1.08;
+      --tracking-display: -0.02em;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --section-y-desktop: 80px;
+      --section-y-tablet: 64px;
+      --section-y-phone: 48px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-pill: 9999px;
+      --elev-ring: 0 0 0 1px var(--border);
+      --elev-raised: 0 1px 2px color-mix(in oklab, var(--fg), transparent 94%),
+        0 18px 46px color-mix(in oklab, var(--fg), transparent 90%);
+      --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+      --motion-fast: 150ms;
+      --motion-base: 220ms;
+      --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+      --container-max: 1180px;
+      --container-gutter-desktop: 24px;
+      --container-gutter-tablet: 18px;
+      --container-gutter-phone: 16px;
+      --flag-red: oklch(62.70% 0.2577 29.23);
+      --flag-blue: oklch(28.23% 0.1934 264.05);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: oklch(0.00% 0.0000 0.00);
+      --surface: oklch(20.06% 0.0020 286.22);
+      --fg: oklch(98.42% 0.0034 247.86);
+      --muted: oklch(74.39% 0.0298 254.06);
+      --border: color-mix(in oklab, var(--fg), transparent 84%);
+      --accent: oklch(100.00% 0.0000 89.88);
+      --accent-on: oklch(0.00% 0.0000 0.00);
+      --accent-hover: color-mix(in oklab, var(--accent), black 10%);
+      --accent-active: color-mix(in oklab, var(--accent), black 18%);
+      --elev-raised: 0 1px 2px color-mix(in oklab, black, transparent 55%),
+        0 18px 46px color-mix(in oklab, black, transparent 72%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in oklab, var(--bg), transparent 8%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .site-nav,
+    .container {
+      width: min(100%, var(--container-max));
+      margin-inline: auto;
+      padding-inline: var(--container-gutter-desktop);
+    }
+
+    .site-nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .brand-link,
+    .nav-actions,
+    .icon-button,
+    .store-button,
+    .footer-mark {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .brand-link {
+      gap: var(--space-2);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-sm);
+    }
+
+    .nav-actions {
+      gap: var(--space-2);
+    }
+
+    .icon-button {
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: var(--radius-pill);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--motion-base) var(--ease-standard),
+        border-color var(--motion-base) var(--ease-standard),
+        color var(--motion-base) var(--ease-standard);
+    }
+
+    .icon-button:hover {
+      border-color: var(--border);
+      background: var(--surface);
+      color: var(--fg);
+      box-shadow: var(--elev-ring);
+    }
+
+    .icon-button:focus-visible,
+    .store-button:focus-visible {
+      outline: 0;
+      box-shadow: var(--focus-ring);
+    }
+
+    .icon-button i,
+    .icon-button svg {
+      width: 19px;
+      height: 19px;
+      font-size: 19px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    main {
+      overflow: clip;
+    }
+
+    .hero {
+      min-height: min(640px, calc(100vh - 64px));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-block: var(--section-y-tablet);
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-copy {
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-logo {
+      width: clamp(88px, 11vw, 136px);
+      height: clamp(88px, 11vw, 136px);
+      margin: 0 auto var(--space-6);
+      display: block;
+      filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.12));
+    }
+
+    h1 {
+      max-width: 100%;
+      margin: 0 auto;
+      color: var(--fg);
+      font-family: var(--font-display);
+      font-size: clamp(35px, 5.2vw, 92px);
+      font-weight: 800;
+      letter-spacing: var(--tracking-display);
+      line-height: 0.98;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .subtitle {
+      max-width: 100%;
+      margin: var(--space-5) auto 0;
+      color: var(--fg);
+      font-size: clamp(19px, 2.2vw, 30px);
+      font-weight: 600;
+      line-height: 1.25;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3);
+      margin-top: var(--space-8);
+    }
+
+    .store-button {
+      min-height: 54px;
+      min-width: 220px;
+      justify-content: center;
+      gap: var(--space-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 14px 24px;
+      background: var(--accent);
+      color: var(--accent-on);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      text-decoration: none;
+      transition: transform var(--motion-base) var(--ease-standard),
+        background var(--motion-base) var(--ease-standard),
+        border-color var(--motion-base) var(--ease-standard);
+    }
+
+    .store-button.secondary {
+      background: var(--surface);
+      color: var(--fg);
+    }
+
+    .store-button:hover {
+      transform: translateY(-2px);
+      background: var(--accent-hover);
+    }
+
+    .store-button.secondary:hover {
+      background: color-mix(in oklab, var(--surface), var(--fg) 5%);
+    }
+
+    .store-button img {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+    }
+
+    .info-section {
+      padding-block: var(--section-y-tablet);
+    }
+
+    .content-stack {
+      max-width: 1080px;
+      margin-inline: auto;
+      display: grid;
+      gap: clamp(44px, 7vw, 72px);
+    }
+
+    .content-section {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .content-section h2 {
+      margin: 0;
+      color: var(--fg);
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.08;
+    }
+
+    .content-section p {
+      max-width: 72ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(17px, 1.55vw, 21px);
+      line-height: var(--leading-body);
+    }
+
+    .content-section.with-media {
+      gap: clamp(var(--space-5), 4vw, var(--space-8));
+    }
+
+    .section-body {
+      display: grid;
+      gap: clamp(var(--space-5), 4vw, var(--space-8));
+    }
+
+    .section-body p {
+      align-self: start;
+    }
+
+    .section-media {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+      align-items: start;
+    }
+
+    .shot {
+      display: grid;
+      gap: var(--space-2);
+      margin: 0;
+      min-width: 0;
+    }
+
+    .shot img {
+      width: 100%;
+      height: clamp(220px, 22vw, 320px);
+      display: block;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      object-fit: contain;
+      object-position: top center;
+    }
+
+    .shot figcaption {
+      color: var(--meta);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .content-section a {
+      color: var(--fg);
+      font-weight: 700;
+      text-decoration-color: color-mix(in oklab, var(--fg), transparent 68%);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+      transition: color var(--motion-fast) var(--ease-standard),
+        text-decoration-color var(--motion-fast) var(--ease-standard);
+    }
+
+    .content-section a:hover {
+      color: var(--accent);
+      text-decoration-color: currentColor;
+    }
+
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      border-top: 1px solid var(--border);
+      padding: var(--space-6) var(--container-gutter-desktop);
+      color: var(--muted);
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+
+    .footer-logo {
+      width: auto;
+      height: 24px;
+      opacity: 0.72;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    .site-footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      color: var(--fg);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: slide-up-fade 560ms var(--ease-standard) forwards;
+      animation-delay: var(--reveal-delay, 0ms);
+    }
+
+    @keyframes slide-up-fade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+
+      .store-button:hover {
+        transform: none;
+      }
+    }
+
+    @media (min-width: 760px) {
+      .store-button {
+        min-width: 260px;
+        padding-inline: var(--space-8);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+        padding-block: var(--section-y-phone);
+      }
+
+      .content-stack {
+        gap: var(--space-12);
+      }
+    }
+
+    @media (min-width: 641px) and (max-width: 900px) {
+      .hero-logo {
+        width: clamp(108px, 14vw, 128px);
+        height: clamp(108px, 14vw, 128px);
+      }
+
+      h1 {
+        font-size: clamp(48px, 7.4vw, 66px);
+      }
+
+      .subtitle {
+        font-size: clamp(24px, 3.35vw, 29px);
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .site-nav,
+      .container {
+        padding-inline: var(--container-gutter-phone);
+      }
+
+      .site-nav {
+        min-height: 58px;
+      }
+
+      .brand-link span {
+        max-width: 52vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .hero-logo {
+        width: 92px;
+        height: 92px;
+        margin-bottom: var(--space-5);
+      }
+
+      h1 {
+        font-size: clamp(30px, 9.2vw, 40px);
+        line-height: 1;
+      }
+
+      .subtitle {
+        margin-top: var(--space-4);
+        font-size: clamp(16px, 4.3vw, 20px);
+      }
+
+      .actions {
+        width: 100%;
+      }
+
+      .store-button {
+        width: 100%;
+      }
+
+      .section-media {
+        grid-template-columns: 1fr;
+      }
+
+      .shot img {
+        height: auto;
+      }
+
+      .site-footer {
+        padding-inline: var(--container-gutter-phone);
+      }
+    }
+
+    @media (max-width: 380px) {
+      .hero-logo {
+        width: 84px;
+        height: 84px;
+      }
+
+      h1 {
+        font-size: clamp(28px, 8.7vw, 33px);
+      }
+
+      .subtitle {
+        font-size: clamp(14px, 3.9vw, 16px);
+      }
+    }
+  </style>
 </head>
 
-<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Poppins', sans-serif;">
-    <!--Hero-->
-    <div class="pt-24">
-        <div class="container px-3 mx-auto flex flex-wrap flex-col items-center">
-            <!--Hero Content-->
-            <div class="flex flex-col w-full md:w-3/4 lg:w-2/3 justify-center items-center text-center">
-                <img class="w-32 md:w-48 object-contain mb-6" src="assets/icon.svg" alt="Return Taiwan WCA icon" />
-                <h1 class="my-4 text-5xl md:text-7xl font-bold leading-tight">
-                    Return Taiwan WCA
-                </h1>
-                <p class="leading-normal text-2xl mb-8">
-                    Brings back Taiwan for WCA webpages.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 mx-auto">
-                    <a href="https://chromewebstore.google.com/detail/return-taiwan-wca/bppnbbbpelfpljajoleaecdipgcccjdm"
-                        target="_blank" rel="noopener noreferrer"
-                        class="bg-white text-gray-800 font-bold rounded-full my-2 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out inline-flex items-center gap-2 relative z-10">
-                        <img src="assets/chrome.svg" alt="Chrome Logo" class="h-6 w-6" />
-                        <span>Chrome Extension</span>
-                    </a>
-                    <a href="https://addons.mozilla.org/en-US/firefox/addon/return-taiwan-wca/" target="_blank"
-                        rel="noopener noreferrer"
-                        class="bg-white text-gray-800 font-bold rounded-full my-2 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out inline-flex items-center gap-2 relative z-10">
-                        <img src="assets/firefox.svg" alt="Firefox Logo" class="h-6 w-6" />
-                        <span>Firefox Add-on</span>
-                    </a>
-                </div>
-            </div>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="brand-link" href="#" aria-label="Return Taiwan WCA home">
+        <img class="brand-icon" src="assets/icon.svg" alt="" aria-hidden="true" />
+        <span>Return Taiwan WCA</span>
+      </a>
+      <div class="nav-actions">
+        <button class="icon-button" type="button" id="theme-toggle" aria-label="Switch theme" aria-pressed="false"
+          title="Switch theme">
+          <i id="theme-icon" class="bi" aria-hidden="true"></i>
+        </button>
+        <a class="icon-button" href="https://github.com/ricky9667/return-tw-wca" target="_blank"
+          rel="noopener noreferrer" aria-label="GitHub repository" title="GitHub repository">
+          <i class="bi bi-github" aria-hidden="true"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <img class="hero-logo reveal" src="assets/icon.svg" alt="" aria-hidden="true" style="--reveal-delay: 40ms;" />
+          <h1 class="reveal" id="page-title" style="--reveal-delay: 90ms;">Return Taiwan WCA</h1>
+          <p class="subtitle reveal" style="--reveal-delay: 160ms;">Brings back Taiwan for WCA webpages.</p>
+          <nav class="actions reveal" aria-label="Download options" style="--reveal-delay: 230ms;">
+            <a class="store-button"
+              href="https://chromewebstore.google.com/detail/return-taiwan-wca/bppnbbbpelfpljajoleaecdipgcccjdm"
+              target="_blank" rel="noopener noreferrer">
+              <img src="assets/chrome.svg" alt="" aria-hidden="true" />
+              <span>Chrome Extension</span>
+            </a>
+            <a class="store-button secondary" href="https://addons.mozilla.org/en-US/firefox/addon/return-taiwan-wca/"
+              target="_blank" rel="noopener noreferrer">
+              <img src="assets/firefox.svg" alt="" aria-hidden="true" />
+              <span>Firefox Add-on</span>
+            </a>
+          </nav>
         </div>
-    </div>
-    <div class="relative -mt-12 lg:-mt-24">
-        <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <path
-                        d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
-                        opacity="0.100000001"></path>
-                    <path
-                        d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
-                        opacity="0.100000001"></path>
-                    <path
-                        d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
-                        id="Path-4" opacity="0.200000003"></path>
-                </g>
-                <g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <path
-                        d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z">
-                    </path>
-                </g>
-            </g>
-        </svg>
-    </div>
-    <!--Introduction-->
-    <section class="bg-white border-b py-8">
-        <div class="container max-w-5xl mx-auto m-8">
-            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-                Introduction
-            </h2>
-            <div class="w-full mb-4">
-                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-            </div>
-            <div class="flex flex-wrap items-center">
-                <div class="w-5/6 sm:w-1/2 p-6">
-                    <div class="text-gray-600 mb-8 space-y-4 text-lg">
-                        <p>
-                            Due to <a
-                                href="https://www.worldcubeassociation.org/posts/important-changes-to-the-recognition-of-regions"
-                                target="_blank" rel="noopener noreferrer"
-                                class="text-blue-500 hover:text-blue-700 font-medium underline transition-colors duration-200">this
-                                announcement</a> from WCA, speedcubers from some specific regions are forced to be
-                            changed. Although it is difficult to revert this change, at least we can trick ourselves
-                            with this extension :P
-                        </p>
-                        <p>
-                            Return Taiwan WCA supports all Chromium browsers, Firefox add-on browsers, and Firefox
-                            Android.
-                        </p>
-                        <p>
-                            Click <a href="https://github.com/ricky9667/return-tw-wca" target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-blue-500 hover:text-blue-700 font-medium underline transition-colors duration-200">here</a>
-                            to see the source code.
-                        </p>
-                    </div>
-                </div>
-                <div class="w-full sm:w-1/2 p-6 flex justify-center cursor-pointer"
-                    onclick="document.getElementById('image-modal').classList.remove('hidden')">
-                    <img src="assets/demo.png" alt="Return Taiwan WCA Demo" />
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
-    <section class="bg-white border-b py-8">
-        <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-                Community & Support
-            </h2>
-            <div class="w-full mb-4">
-                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+
+    <section class="info-section" aria-label="About Return Taiwan WCA">
+      <div class="container">
+        <div class="content-stack reveal" style="--reveal-delay: 300ms;">
+          <section class="content-section" aria-labelledby="introduction-heading">
+            <h2 id="introduction-heading">Introduction</h2>
+            <p>
+              Due to
+              <a href="https://www.worldcubeassociation.org/posts/important-changes-to-the-recognition-of-regions"
+                target="_blank" rel="noopener noreferrer">this announcement</a>
+              from WCA, speedcubers from some specific regions are forced to be changed. Although it is difficult to
+              revert this change, at least we can trick ourselves with this extension :P
+            </p>
+          </section>
+
+          <section class="content-section with-media" aria-labelledby="features-heading">
+            <h2 id="features-heading">Features</h2>
+            <div class="section-body">
+              <p>
+                Return Taiwan WCA changes back the name for Taiwan, Hong Kong, and Macau, and changes the Chinese Taipei
+                flag back the Taiwan flag. The changes will be applied to WCA and WCA Live.
+              </p>
+              <div class="section-media" aria-label="WCA and WCA Live screenshots">
+                <figure class="shot">
+                  <img src="assets/chrome-wca.png"
+                    alt="Chrome screenshot showing Taiwan restored on a WCA profile page" />
+                  <figcaption>WCA</figcaption>
+                </figure>
+                <figure class="shot">
+                  <img src="assets/chrome-wca-live.png" alt="Chrome screenshot showing Taiwan restored on WCA Live" />
+                  <figcaption>WCA Live</figcaption>
+                </figure>
+              </div>
             </div>
+          </section>
 
-            <div
-                class="w-full flex flex-col md:flex-row justify-center items-center md:items-stretch gap-8 lg:gap-12 mt-8 md:mt-12 px-6">
-                <!-- HUSH Timer -->
-                <div class="flex flex-col items-center text-center flex-1 max-w-sm mb-8 md:mb-0">
-                    <h3 class="text-2xl text-gray-800 font-bold leading-none mb-3">Try our other apps</h3>
-                    <p class="text-gray-600 mb-6 flex-grow">
-                        Download the best 1v1 cubing timer, I'm sure you'll like it. 🥇
-                    </p>
-                    <a href="https://hushtimer.app/" target="_blank" rel="noopener noreferrer"
-                        class="text-gray-800 bg-white border-2 border-gray-800 font-bold rounded-full py-4 px-8 shadow-lg transform transition hover:scale-105 hover:bg-gray-800 hover:text-white duration-300 ease-in-out inline-flex items-center gap-2">
-                        <span>HUSH Timer</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Discord -->
-                <div class="flex flex-col items-center text-center flex-1 max-w-sm mb-8 md:mb-0">
-                    <h3 class="text-2xl text-gray-800 font-bold leading-none mb-3">Join our Discord</h3>
-                    <p class="text-gray-600 mb-6 flex-grow">
-                        Any ideas or issues with our project? Join our Discord server to interact with us directly. 🗣️
-                    </p>
-                    <a href="https://discord.gg/GjfMKprt7q" target="_blank" rel="noopener noreferrer"
-                        class="text-white font-bold rounded-full py-4 px-8 shadow-lg transform transition hover:scale-105 hover:opacity-90 duration-300 ease-in-out inline-flex items-center gap-2"
-                        style="background-color: #5865F2;">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 127.14 96.36"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.2,46,96.12,53,91.08,65.69,84.69,65.69Z" />
-                        </svg>
-                        <span>Join our Discord</span>
-                    </a>
-                </div>
-
-                <!-- Buy Me A Coffee -->
-                <div class="flex flex-col items-center text-center flex-1 max-w-sm">
-                    <h3 class="text-2xl text-gray-800 font-bold leading-none mb-3">Support us</h3>
-                    <p class="text-gray-600 mb-6 flex-grow">
-                        If you want me to continue making these project nice and not die, support me on Buy Me A Coffee!
-                        😋
-                    </p>
-                    <a href="https://www.buymeacoffee.com/ricky9667" target="_blank" rel="noopener noreferrer"
-                        class="transform transition hover:scale-105 hover:opacity-90 duration-300 ease-in-out inline-block">
-                        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
-                            style="height: 60px !important;width: 217px !important;">
-                    </a>
-                </div>
+          <section class="content-section with-media" aria-labelledby="compatibility-heading">
+            <h2 id="compatibility-heading">Compatibility</h2>
+            <div class="section-body">
+              <p>
+                The extension supports all Chromium browsers, Firefox add-on browsers, and Firefox Android.
+              </p>
+              <div class="section-media" aria-label="Firefox desktop and Android screenshots">
+                <figure class="shot">
+                  <img src="assets/firefox.png" alt="Firefox desktop screenshot showing the extension applied to WCA" />
+                  <figcaption>Firefox</figcaption>
+                </figure>
+                <figure class="shot">
+                  <img src="assets/firefox-android.png"
+                    alt="Firefox Android screenshot showing the extension applied on mobile" />
+                  <figcaption>Firefox Android</figcaption>
+                </figure>
+              </div>
             </div>
+          </section>
         </div>
+      </div>
     </section>
-    <!--Footer-->
-    <footer class="bg-white">
-        <div class="container mx-auto px-8 py-10">
-            <div class="flex items-center justify-center gap-1">
-                <img src="assets/ricky-hu-logo.png" alt="Ricky Hu Logo" class="h-6 w-auto" />
-                <p class="text-gray-500 text-sm font-medium">
-                    <a href="https://ricky-hu.com" target="_blank" rel="noopener noreferrer">Ricky Hu</a>
-                    &copy;
-                    <span id="copyright-year"></span>
-                </p>
-            </div>
-        </div>
-    </footer>
+  </main>
 
-    <div id="image-modal" style="z-index: 100;"
-        class="fixed inset-0 hidden bg-black bg-opacity-80 flex justify-center items-center p-4 transition-opacity duration-300"
-        onclick="this.classList.add('hidden')">
-        <div class="relative max-w-5xl w-full flex justify-center" onclick="event.stopPropagation()">
-            <img src="assets/demo.png" alt="Return Taiwan WCA Demo Full Size"
-                class="max-h-[90vh] object-contain rounded-lg shadow-2xl border border-gray-700" />
-            <button onclick="document.getElementById('image-modal').classList.add('hidden')"
-                class="absolute -top-10 right-0 text-white hover:text-gray-300 focus:outline-none">
-                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-    </div>
+  <footer class="site-footer">
+    <img src="assets/ricky-hu-logo.png" alt="Ricky Hu Logo" class="footer-logo" />
+    <p>
+      <a href="https://ricky-hu.com" target="_blank" rel="noopener noreferrer">Ricky Hu</a>
+      &copy;
+      <span id="copyright-year"></span>
+    </p>
+  </footer>
 
-    <script>
-        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+    const copyrightYear = document.getElementById("copyright-year");
+    const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    let currentTheme = document.documentElement.dataset.theme || (themeQuery.matches ? "dark" : "light");
 
-        // Add Esc key listener to close modal
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                document.getElementById('image-modal').classList.add('hidden');
-            }
-        });
-    </script>
+    function applyTheme(theme, persist = false) {
+      currentTheme = theme;
+      document.documentElement.dataset.theme = theme;
+      const dark = theme === "dark";
+      themeToggle.setAttribute("aria-pressed", String(dark));
+      themeToggle.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+      themeToggle.setAttribute("title", dark ? "Switch to light theme" : "Switch to dark theme");
+      themeIcon.className = dark ? "bi bi-sun" : "bi bi-moon-stars";
+      if (persist) {
+        try { localStorage.setItem("return-tw-wca-theme", theme); } catch (_) { }
+      }
+    }
+
+    themeToggle.addEventListener("click", () => {
+      applyTheme(currentTheme === "dark" ? "light" : "dark", true);
+    });
+
+    themeQuery.addEventListener("change", (event) => {
+      try {
+        if (!localStorage.getItem("return-tw-wca-theme")) {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      } catch (_) { }
+    });
+
+    applyTheme(currentTheme);
+    copyrightYear.textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
