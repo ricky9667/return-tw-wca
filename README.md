@@ -20,3 +20,7 @@ A web extension that changes `Chinese Taipei` back to `Taiwan` on all WCA result
 1. Download or `git clone` this repository.
 2. Go to the Firefox debuggin page: `about:debugging#/runtime/this-firefox`
 3. Click **Load Temporary Add-on** and select the **`manifest.json` file only**.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
