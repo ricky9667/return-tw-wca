@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.css" />
   <script>
     try {
       const savedTheme = localStorage.getItem("return-tw-wca-theme");
@@ -395,6 +396,10 @@
       object-position: top center;
     }
 
+    .shot img.js-preview-image {
+      cursor: zoom-in;
+    }
+
     .shot figcaption {
       color: var(--meta);
       font-size: 13px;
@@ -650,12 +655,12 @@
               </p>
               <div class="section-media" aria-label="WCA and WCA Live screenshots">
                 <figure class="shot">
-                  <img src="assets/chrome-wca.png"
+                  <img class="js-preview-image" src="assets/chrome-wca.png"
                     alt="Chrome screenshot showing Taiwan restored on a WCA profile page" />
                   <figcaption>WCA</figcaption>
                 </figure>
                 <figure class="shot">
-                  <img src="assets/chrome-wca-live.png" alt="Chrome screenshot showing Taiwan restored on WCA Live" />
+                  <img class="js-preview-image" src="assets/chrome-wca-live.png" alt="Chrome screenshot showing Taiwan restored on WCA Live" />
                   <figcaption>WCA Live</figcaption>
                 </figure>
               </div>
@@ -670,11 +675,11 @@
               </p>
               <div class="section-media" aria-label="Firefox desktop and Android screenshots">
                 <figure class="shot">
-                  <img src="assets/firefox.png" alt="Firefox desktop screenshot showing the extension applied to WCA" />
+                  <img class="js-preview-image" src="assets/firefox.png" alt="Firefox desktop screenshot showing the extension applied to WCA" />
                   <figcaption>Firefox</figcaption>
                 </figure>
                 <figure class="shot">
-                  <img src="assets/firefox-android.png"
+                  <img class="js-preview-image" src="assets/firefox-android.png"
                     alt="Firefox Android screenshot showing the extension applied on mobile" />
                   <figcaption>Firefox Android</figcaption>
                 </figure>
@@ -695,6 +700,7 @@
     </p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js"></script>
   <script>
     const themeToggle = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
@@ -729,6 +735,12 @@
 
     applyTheme(currentTheme);
     copyrightYear.textContent = new Date().getFullYear();
+
+    new Viewer(document.body, {
+      filter(image) {
+        return image.classList.contains("js-preview-image");
+      }
+    });
   </script>
 </body>
 
